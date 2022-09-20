@@ -65,11 +65,26 @@
         vertical-align: middle;
         padding-right: 0.2em;
       }
-      iframe {
-        width: 0;
-        height: 0;
-        border: 0;
+      nav.usage {
         position: absolute;
+        left: calc((100vw - 400px) / 2);
+        bottom: 20px;
+        width: 400px;
+        font-size: 0.8em;
+        background: white;
+        padding: 1em;
+        border-radius: 1em;
+      }
+      nav.usage.hide {
+        z-index: -1;
+      }
+      nav.usage button {
+        float: right;
+      }
+      iframe {
+        width: 100%;
+        height: 140px;
+        border: 0;
       }
     </style>
   </head>
@@ -77,12 +92,29 @@
     <div id="p5-container"></div>
 
     <section>
-      <h1 contenteditable spellcheck="false">Header Text</h1>
-      <h2 contenteditable spellcheck="false">Subheader Text</h2>
+      <h1 contenteditable spellcheck="false">Title</h1>
+      <h2 contenteditable spellcheck="false">Presenter</h2>
       <p contenteditable spellcheck="false">17:00&hairsp;&hairsp;–17:30</p>
     </section>
 
-    <iframe src="https://www.youtube.com/embed/FXmU9DQuILA?autoplay=1" allow="autoplay"></iframe>
+    <nav class="usage">
+      <button onclick="document.querySelector('nav.usage').classList.add('hide')">非表示</button>
+      <p>使い方</p>
+      <ol>
+        <li>↑のテキストをクリックして編集します</li>
+        <li>↓のYouTube動画をクリックしてBGMを開始します</li>
+        <li>⤴︎のボタンをクリックしてこの表示を消します</li>
+        <li>
+          Zoom会議にChromeで参加し
+          <small>
+            （アプリを開きますか？ → キャンセル → もう一度「ミーティングを起動」 → 開きますか？ → キャンセル →
+            ブラウザで開く）
+          </small>
+          、音声も共有する設定でこのタブを画面共有します
+        </li>
+      </ol>
+      <iframe src="https://www.youtube.com/embed/FXmU9DQuILA?autoplay=1" allow="autoplay"></iframe>
+    </nav>
 
     <script type="module">
       // @ts-check
